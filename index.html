@@ -1,0 +1,25 @@
+<html>
+    <header>
+         <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.js"></script>
+       </header>
+       <body>
+         <a-scene>
+             <a-asset>
+               <img id = "space-background" src = "space.jpg"/>
+               <a-asset-item id = "spaceship-obj" src = "player-ship.obj"></a-asset-item>
+               <a-asset-item id = "spaceship-mtl" src = "player-ship.mtl"></a-asset-item>
+             </a-asset>
+             <a-entity camera="" look-controls="" position="0 1.5 0" rotation=""></a-entity>
+             <a-entity sphere-collider="objects: a-box" super-hands hand-controls="left"></a-entity>
+             <a-entity sphere-collider="objects: a-box" super-hands hand-controls="right"></a-entity>
+
+             <a-sky id="da-sky" material = "src: #space-background"></a-sky>
+             <a-entity id = "spaceship" obj-model = "obj: #spaceship-obj; mtl: #spaceship-mtl" scale="0.5 0.5 0.5" position = "-29 -22 29" visible = "false" begin="click">
+                 <a-animation fill = "forwards" attribute="visible" begin="click" to="false"></a-animation>
+             </a-entity>
+             <script>
+             document.getElementById('spaceship').setAttribute('visible', 'true')
+             </script>
+           </a-scene>
+       </body>
+   </html>
